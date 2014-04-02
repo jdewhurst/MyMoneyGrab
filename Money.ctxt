@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Money()
+comment0.text=\n\ No-arg\ Constructor\n
+comment1.params=value
+comment1.target=Money(int)
+comment1.text=\n\ Constructor\n\ @param\ int\ value\ Dollar\ value\ for\ this\ money\ object\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Money\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=boolean\ isGrabbed()
+comment4.params=
+comment4.target=void\ fly()
+comment5.params=
+comment5.target=void\ checkForEdge()
+comment6.params=
+comment6.target=void\ updateImage()
+numComments=7

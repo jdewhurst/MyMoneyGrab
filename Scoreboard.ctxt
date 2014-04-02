@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Scoreboard()
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ updateImage()
+comment3.params=amt
+comment3.target=void\ setCash(int)
+numComments=4
