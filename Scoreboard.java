@@ -24,6 +24,12 @@ public class Scoreboard extends Actor
     {
         updateImage();
     }
+    
+    public void addCash(int amt)
+    {
+        cash += amt;
+        updateImage();
+    }
 
     public void updateImage()
     {
@@ -37,11 +43,7 @@ public class Scoreboard extends Actor
         image.setFont(font);
         image.setColor(Color.WHITE);
         image.drawString("$" + cash, 10, (HEIGHT/2)+(((int)FONT_SIZE)/4));
-
         setImage(image);
 
-    }
-    public void setCash(int amt){
-        cash = cash + amt;
     }
 }

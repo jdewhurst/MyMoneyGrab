@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.awt.*;
+
 /**
  * A Money object will pop around the screen until the user clicks on it at which point the dollar amount goes up.
  * 
@@ -8,10 +8,8 @@ import java.awt.*;
  */
 public class Money extends Actor
 {
-    private final int WIDTH = 100;
-    private final int HEIGHT = 50;
-    private final float FONT_SIZE = 22.0f;
     private int dollarValue;
+    private GreenfootImage img;
 
     /**
      * No-arg Constructor
@@ -27,7 +25,9 @@ public class Money extends Actor
      */
     public Money(int value)
     {
-        dollarValue = value;   
+        dollarValue = value;
+        img = new GreenfootImage("bill-" + value + ".png");
+        setImage(img);
     }
 
     /**
@@ -39,15 +39,12 @@ public class Money extends Actor
         fly();
         if (isGrabbed())
         {
-            MoneyBooth booth = (MoneyBooth) getWorld();
-            booth.updateScoreboard(dollarValue);
-            //Scoreboard board = (Scoreboard) booth.getScoreboard();
-            //board.setCash(dollarValue);
-            //board.updateImage();
-          getWorld().removeObject(this);
-            
+            //get the dollar value to the Scoreboard by way of the MoneyGrab world object
+            MoneyBooth world = (MoneyBooth)getWorld();
+            world.updateScoreboard(dollarValue);
+            getWorld().removeObject(this);
+            world.setCount(-1);
         }
-        updateImage();
     }
 
     public boolean isGrabbed()
@@ -87,25 +84,6 @@ public class Money extends Actor
         //check to see if getting too close to the left edge
         if(getY() < 10)
         {  turnTowards(getX(), maxY); }
-
-    }
-        public void updateImage()
-    {
-        //GreenfootImage image = new GreenfootImage(WIDTH, HEIGHT);
-        GreenfootImage image = new GreenfootImage(getX(), getY());
-        //GreenfootImage image = getImage(getX(), getY());
-
-        image.setColor(new Color(0, 0, 0, 160));
-        image.fillRect(0, 0, WIDTH, HEIGHT);
-        image.setColor(new Color(255, 255, 255, 100));
-        image.fillRect(5, 5, WIDTH-10, HEIGHT-10);
-        Font font = image.getFont();
-        font = font.deriveFont(FONT_SIZE);
-        image.setFont(font);
-        image.setColor(Color.WHITE);
-        image.drawString("$" + dollarValue,10,(HEIGHT/2)+(((int)FONT_SIZE)/4));
-
-        setImage(image);
 
     }
 }
